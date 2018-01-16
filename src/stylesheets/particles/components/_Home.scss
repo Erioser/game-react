@@ -1,0 +1,24 @@
+
+
+
+.class-list{
+
+    display: flex;
+    background: #fff;
+    a{
+        flex-grow: 1;flex-shrink: 1;
+        display: flex;flex-direction: column;
+        align-items: center;justify-content: space-around;
+        padding: 10px 0px;
+        img{
+            width: 0.96rem;
+            height: 0.96rem;
+            margin-bottom: 0.08rem;
+            border-radius: 50%;
+        }
+
+        color: #999;font-size: 24px;
+
+    }
+
+}

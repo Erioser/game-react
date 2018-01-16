@@ -1,0 +1,65 @@
+
+@import '../_base.scss';
+.header{
+    display: flex;
+    height: 1.17333rem;
+    line-height: 1.17333rem;
+    background-color: $base-color;
+    color: #fff;
+
+    align-items: center;
+    h1{
+        margin: 0;
+        flex-grow: 1;flex-shrink: 1;
+        line-height: 1.17333rem;
+        text-align: center;font-weight: normal;
+        font-size: 40px; 
+    }
+
+    .left,.right{
+        width: 1.1rem;
+        text-align: center;
+        line-height: 1.17333rem;
+        color: #fff;
+        line-height: 1.17333rem;
+        font-size: 36px;  
+    }
+
+    .left {padding-left: 0.48rem;}
+    .right {padding-right: 0.48rem;}
+}
+
+.footer{
+    position: fixed;
+    z-index: 100;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translate3d(-50%,0,0);
+    transform: translate3d(-50%,0,0);
+    width: 100%;
+    height: 1.30667rem;
+    background-color: #fafafa;
+    border-top: 1px solid #ddd;
+
+
+    display: flex;
+
+    a{
+        padding-top: 5px;
+        flex-grow: 1;flex-shrink: 1;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        i{font-size: 40px;}
+        span{font-size: 24px;}
+        justify-content: space-around;
+
+        color: #999;
+
+        &.active{
+            color: $base-color;
+        }
+    }    
+}
