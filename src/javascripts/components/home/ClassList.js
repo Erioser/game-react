@@ -5,10 +5,7 @@ import React,{Component} from 'react'
 
 
 class ClassList extends Component {
-    constructor(props){
-        super(props)
-        
-    }
+    
 
     
 
@@ -20,8 +17,8 @@ class ClassList extends Component {
             <div className="class-list">
                 {
                     data.map( item =>(
-                        <a>
-                            <img src={item.image}/>
+                        <a key={item.id}>
+                            <img alt="" src={item.image}/>
                             <span>{item.name}</span>
                         </a>
                     ))

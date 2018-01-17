@@ -14,7 +14,7 @@ class Banner extends Component {
         
     }
     shouldComponentUpdate(props){
-        if(props.data.length==this.props.data.length){
+        if(props.data.length===this.props.data.length){
             return false           
         }else{
             return true
@@ -40,7 +40,7 @@ class Banner extends Component {
                     {
                         data.map(item=>(
                             <div className="swiper-slide" key={item.id}>
-                                <img src={item.image}/>
+                                <img alt="" src={item.image}/>
                             </div>
                         ))
                     }

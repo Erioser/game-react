@@ -1,0 +1,99 @@
+
+.image{
+    border-radius: 12px;
+}
+
+.theme-item-simple{
+    flex-grow: 1;flex-shrink:1;
+    display: flex;flex-direction:column;
+
+    align-items: center;
+    justify-content: center;
+
+    img{
+        width: 1.6rem;
+        height: 1.6rem;
+        margin-bottom: .2133rem;
+    }
+    .title{
+        font-size: 100%;
+    }
+}
+
+.theme-item-common{
+    padding: 0px .32rem;
+    background: #fff;
+    display:flex;
+    align-items: center;
+    height: 2.34667rem;
+    &:not(:last-child) {
+        border-bottom: 1px solid #ddd;
+    }
+    .game-info{
+        flex-grow: 1;flex-shrink: 1;
+        display: flex;
+        img{
+            width: 1.6rem;
+            height: 1.6rem;
+            margin-bottom: .2133rem;
+        }
+
+        .info-box{
+            flex-grow: 1;flex-shrink: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            margin-left: .32rem;
+
+            label{
+                padding:2px 6px;
+                border-radius: 5px;
+                color: #fff;
+            }
+
+            .middle,.bottom{
+                font-size: 20px;
+            }
+        }
+    }
+}
+.theme-button{
+    display: block;
+    padding: .13333rem .42667rem;
+    border: 1px solid #ff2741;
+    color: #ff2741;
+    border-radius: 2px;
+    font-size: 10px;
+    background: #fff;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    font-size: 20px;border-radius: 4px;
+}
+.theme-box{
+    background: #fff;
+    margin-top: .32rem;
+    .theme-header{
+        width: 100%;
+        line-height: 1.17333rem;
+        display: flex;justify-content: space-between;
+        padding-left: .32rem;
+        padding-right: .32rem;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .theme1-body{
+        height: 3.09333rem;
+        display: flex;
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+
+        
+
+    }
+
+
+
+
+
+}

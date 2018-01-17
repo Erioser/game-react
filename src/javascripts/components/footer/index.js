@@ -23,7 +23,7 @@ class Footer extends Component {
 			<footer className="footer">
 				{
                     navs.map((item)=>(
-                        <Link className={pathname==item.path?'active':''} to={item.path} key={item.id}>
+                        <Link className={pathname===item.path?'active':''} to={item.path} key={item.id}>
                             <i className={`fa fa-${item.icon}`}></i>
                             <span >{item.text}</span>
                         </Link>

@@ -5,8 +5,9 @@ import Header from '../header'
 import Footer from '../footer'
 import Banner from './Banner'
 import ClassList from './ClassList'
+import Content from './Content'
 import axios from 'axios'
-
+import {ListView} from 'antd-mobile'
 const HeaderBtn = (props)=>(
 	<a className={props.className}><i className={`fa fa-${props.type}`}></i></a>
 )
@@ -19,7 +20,8 @@ class Home extends Component {
 		this.state={
 			data:{
 				bannerList:[],
-				classList:[]
+				classList:[],
+				themeList:[]
 			},
 			count:0
 		}
@@ -51,9 +53,10 @@ class Home extends Component {
 				<Banner data={data.bannerList}/>
 
 				<ClassList data={data.classList}/>
+				
+				<Content data={data.themeList}/>
 
-				<button onClick={()=>{this.setState(({count})=>{return {count:++count}})}}>{count}</button>
-
+				
 				<Footer pathname={pathname} />
 			</div>
 		)
