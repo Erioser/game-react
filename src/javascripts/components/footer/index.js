@@ -9,7 +9,7 @@ class Footer extends Component {
         this.state = {
             navs:[
                 {id:1,text:'首页',icon:'home',path:'/home'},
-                {id:2,text:'榜单',icon:'anchor',path:'/ranking'},
+                {id:2,text:'榜单',icon:'anchor',path:'/leaderboard/total'},
                 {id:3,text:'分类',icon:'navicon',path:'/classify'},
                 {id:4,text:'我的',icon:'user-o',path:'/mine'},
             ]

@@ -7,6 +7,7 @@ import Banner from './Banner'
 import ClassList from './ClassList'
 import Content from './Content'
 import axios from 'axios'
+
 import {ListView} from 'antd-mobile'
 const HeaderBtn = (props)=>(
 	<a className={props.className}><i className={`fa fa-${props.type}`}></i></a>
@@ -42,7 +43,7 @@ class Home extends Component {
 		let {pathname} = this.props.location
 		let {data,count} = this.state
 		return (
-			<div>
+			<div className="main-box">
 				
 					
 				<Header 					
