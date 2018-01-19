@@ -19,16 +19,21 @@ import Mine from './javascripts/components/mine/Mine'
 import Login from './javascripts/components/mine/login'
 import Register from './javascripts/components/mine/register'
 import Personal from './javascripts/components/mine/personal'
+import GameType from './javascripts/components/game_type/GameType'
 
 
 import Demo from './javascripts/Demo'
 
+import {Provider} from 'react-redux'
+import store from './redux/store'
 
-let routes = <Router history={hashHistory}>
+let routes = <Provider store={store}>
+<Router history={hashHistory}>
 	<Route path="/" component={App}>
 		<IndexRedirect to="home"/>
 		<Route path="home" component={Home}/>
 		<Route path="leaderboard/:type" component={LeaderBoard}/>
+		<Route path="gameType" component={GameType}/>
 		<Route path="mine" component={Mine}>
 			<Route path="login" component={Login}/>
 			<Route path="register" component={Register}/>
@@ -39,6 +44,7 @@ let routes = <Router history={hashHistory}>
 		<Redirect from="*" to="home"/>
 	</Route>
 </Router>
+</Provider>
 
 ReactDOM.render(
 	routes

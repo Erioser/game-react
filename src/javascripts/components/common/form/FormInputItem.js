@@ -11,19 +11,21 @@ class FormInputItem extends React.Component {
 	
 	
 	render(){
-		let {label,type} = this.props
+		let {label,type,name} = this.props
 		return (
 			
 			<div className="form-input-item">
 				
 				<label>{label}</label>
 				
-				<input type={type||"text"} />
+				<input name={name} type={type||"text"} />
 				
 			</div>
 			
 		)
 	}
+	
+
 	
 }
 

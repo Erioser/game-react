@@ -20,7 +20,7 @@ import renderFooter from '../../utils/renderFooter'
 //因为dataSource只接受对象格式的
 
 //控制页数的，为什么是默认是1呢，因为初始的第一页的数据，home已经传进来了，不用获取了，所以现在就是第一页
-let page = 0
+
 //axios发送的配置项
 
 
@@ -36,12 +36,13 @@ class LeaderBoard extends React.Component {
 	      	dataSource:dataSource,
 			  	isLoading: true,//防止在加载过程中再次加载的开关
 			  	hasMore:true,//当没有新数据的时候此值为false，阻止获取新数据,
-			  	type:this.props.params.type=='new'?2:1
+			  	type:this.props.params.type=='new'?2:1,
 	    };
     
 	    //渲染底部的
 	    this.initData = this.initData.bind(this)
 	    this.moreData = this.moreData.bind(this)
+	    this.page=1
 	}
 	
 	getData(callback){  
@@ -65,7 +66,7 @@ class LeaderBoard extends React.Component {
 		let games = data.data.gameList
 	//如果此次获取到的数据为空数组，说明后面没有数据了
     if(games.length===0){
-    	page--;
+    	this.page--;
       //表明加载完了，且没有新数据了
     	that.setState({
 			  isLoading: false,
@@ -75,7 +76,7 @@ class LeaderBoard extends React.Component {
     	}
 	//如果获取到有效数据了
 	//将上次的数据和这次的数据放入到新的数据对象中
-    that.rData = {...that.rData,...genData(page-1,games)};
+    that.rData = {...that.rData,...genData(this.page-1,games)};
 	
    //将新数据放入到dataSource中
     that.setState({
@@ -87,8 +88,8 @@ class LeaderBoard extends React.Component {
 	componentWillReceiveProps(props){
 		console.log('切换啦')	
 			let type = props.params.type=='new'?2:1		
-			page=1;	
-	    config.data={page,type}
+			this.page=1;	
+	    config.data={page:this.page,type}
 			this.getData(this.initData)
 	}
 	
@@ -96,8 +97,8 @@ class LeaderBoard extends React.Component {
 	  componentDidMount() {
 	   
 	    let that = this    
-	    page++;	
-	    config.data={page,type:this.state.type}
+	    this.page++;	
+	    config.data={page:this.page,type:this.state.type}
 	    this.getData(this.initData)
 	  }
 	  
@@ -114,9 +115,9 @@ class LeaderBoard extends React.Component {
 		//有更多的数据，且没有在加载，所以可以去加载		
 	    //说明现在正在加载
 		  this.setState({ isLoading: true });
-	    page++
+	    this.page++
 	    //获取数据
-	    config.data={page,type:this.state.type}
+	    config.data={page:this.page,type:this.state.type}
 	    this.getData(this.moreData)
 	  }
 	  

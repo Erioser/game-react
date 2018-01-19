@@ -1,13 +1,25 @@
 import React from 'react'
 
+import {connect} from 'react-redux'
+import {Toast} from 'antd-mobile'
 const ThemeButton = (props)=>{
     return (
-        <button className="theme-button">开始</button>
+        <button onClick={props.handler} className="theme-button">开始</button>
     )
 }
 
 const ThemeItemCommon =(props)=>{
          let {data} = props
+         console.log(props,111111)
+         
+        let vali=function(){
+        	if(props.User.userInfo){
+        		window.location.href='http://www.dolapocket.com/game/index_new.php?gid='+data.id
+        	}else{
+        		Toast.info('请登陆后玩耍')
+        	}
+        }
+         
         return (
             <div className="theme-item-common">
 				{props.children || ''}
@@ -27,11 +39,11 @@ const ThemeItemCommon =(props)=>{
                         
                     </div>
                 </div>
-                <ThemeButton/>
+                <ThemeButton handler={vali}/>
             </div>
         )
     }
 
 
 
-export default ThemeItemCommon
+export default connect(state=>state)(ThemeItemCommon)

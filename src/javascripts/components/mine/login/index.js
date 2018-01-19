@@ -6,12 +6,22 @@ import Header from '../../header'
 import Form from '../../common/form'
 import FormInputItem from '../../common/form/FormInputItem'
 
+import { Toast } from 'antd-mobile';
+import {hashHistory,Link} from 'react-router'
+
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+
+import UserActions from '../../../../redux/ActionCreators/UserActions'
+
+
+
 const LeftBtn = (props)=>(
-		<a className="left big"><i className="fa fa-angle-left"></i></a>
+		<Link to={"/home"} className="left big"><i className="fa fa-angle-left"></i></Link>
 )
 
 const RightBtn = (props)=>(
-		<a className="right text">注册</a>
+		<Link to={"/mine/register"} className="right text">注册</Link>
 )
 
 class Login extends React.Component {
@@ -21,11 +31,12 @@ class Login extends React.Component {
 		this.loginHandler = this.loginHandler.bind(this)
 	}
 	
-	loginHandler(){
-		alert('登陆啦')
+	loginHandler(data){		
+		this.props.UserActions.loginHandler(data)		
 	}
 	
 	render(){
+		console.log(this.props)
 		return (
 			
 			<div>
@@ -36,9 +47,8 @@ class Login extends React.Component {
 				/>
 				
 				<Form handler={this.loginHandler}>
-					<FormInputItem label={"用户名"}/>					
-					<FormInputItem label={"密码"} type={"password"}/>					
-				
+					<FormInputItem name={"phone"} label={"手机号"}/>					
+					<FormInputItem name={"password"} label={"密码"} type={"password"}/>			
 				</Form>
 				
 			</div>
@@ -48,4 +58,9 @@ class Login extends React.Component {
 	
 }
 
-export default Login
+
+export default connect(state=>state,(dispatch)=>{
+	return {
+		UserActions:bindActionCreators(UserActions,dispatch)
+	}
+})(Login)

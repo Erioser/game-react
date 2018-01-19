@@ -5,13 +5,32 @@ import Footer from '../footer'
 
 import {hashHistory} from 'react-router'
 
+import {connect} from 'react-redux'
+
 class Mine extends React.Component {
 	
 	componentDidMount(){
 		//判断有没有登陆....
+		console.log(this.props)
+		if(this.props.User.userInfo){
+			hashHistory.push('/mine/personal')
+		}else{
+			hashHistory.push('/mine/login')
+		}
 		
-		hashHistory.push('/mine/login')
 	}
+	
+	componentDidUpdate(){
+		if(this.props.location.pathname=='/mine'){
+			console.log('要做判断了')
+			if(this.props.User.userInfo){
+				hashHistory.push('/mine/personal')
+			}else{
+				hashHistory.push('/mine/login')
+			}
+		}
+	}
+	
 	render(){
 		let {pathname} = this.props.location
 		return (
@@ -28,4 +47,4 @@ class Mine extends React.Component {
 	
 }
 
-export default Mine
+export default connect(state=>state)(Mine)

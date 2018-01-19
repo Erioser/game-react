@@ -10,7 +10,7 @@ class Footer extends Component {
             navs:[
                 {id:1,text:'首页',icon:'home',path:'/home'},
                 {id:2,text:'榜单',icon:'anchor',path:'/leaderboard/total'},
-                {id:3,text:'分类',icon:'navicon',path:'/classify'},
+                {id:3,text:'分类',icon:'navicon',path:'/gameType'},
                 {id:4,text:'我的',icon:'user-o',path:'/mine'},
             ]
         }
@@ -19,11 +19,12 @@ class Footer extends Component {
 	render(){
         let {navs} = this.state
         let {pathname} = this.props
+        
 		return (
 			<footer className="footer">
 				{
                     navs.map((item)=>(
-                        <Link className={pathname===item.path?'active':''} to={item.path} key={item.id}>
+                        <Link className={pathname.startsWith(item.path)?'active':''}  to={item.path} key={item.id}>
                             <i className={`fa fa-${item.icon}`}></i>
                             <span >{item.text}</span>
                         </Link>
@@ -35,5 +36,5 @@ class Footer extends Component {
 	}
 	
 }
-
+//
 export default Footer
