@@ -10,7 +10,7 @@ const ThemeItemCommon =(props)=>{
          let {data} = props
         return (
             <div className="theme-item-common">
-
+				{props.children || ''}
                 <div className="game-info">
                     <img alt="" src={data.image} className="image"/>
 

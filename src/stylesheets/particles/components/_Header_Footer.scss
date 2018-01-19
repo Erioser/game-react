@@ -17,16 +17,23 @@
     }
 
     .left,.right{
-        width: 1.1rem;
-        text-align: center;
+        width: 1.5rem;
         line-height: 1.17333rem;
         color: #fff;
         line-height: 1.17333rem;
         font-size: 36px;  
+        
+        &.big{
+            font-size: 46px;
+        }
+        
+        &.text{
+            font-size: 28px;
+        }
     }
 
-    .left {padding-left: 0.48rem;}
-    .right {padding-right: 0.48rem;}
+    .left {padding-left: 0.48rem;text-align: left;}
+    .right {padding-right: 0.48rem;text-align: right;}
 }
 
 .footer{

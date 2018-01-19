@@ -5,6 +5,10 @@ import axios from 'axios'
 import ThemeBox from '../common/theme_box'
 import { ListView } from 'antd-mobile';
 
+
+import renderFooter from '../../utils/renderFooter'
+
+
 //处理数据的方法，将数据形式的数据，处理成对象形式
 //因为dataSource只接受对象格式的
 function genData(pIndex = 0,data) {
@@ -33,8 +37,6 @@ class Content extends React.Component {
 		  hasMore:true//当没有新数据的时候此值为false，阻止获取新数据
     };
     
-    //渲染底部的
-    this.renderFooter=this.renderFooter.bind(this)
   }
   
   
@@ -108,7 +110,7 @@ class Content extends React.Component {
         ref={el => this.lv = el}
         dataSource={this.state.dataSource}
         
-        renderFooter={this.renderFooter}
+        renderFooter={renderFooter.bind(null,this)}
         renderRow={row}
         
        
@@ -122,25 +124,7 @@ class Content extends React.Component {
     );
   }
   
-  renderFooter(){
-  	let footerContent = ''
-  	if(this.state.isLoading){
-  		footerContent= <p className="info-message">正在加载</p>
-  	}else {
-  		if(!this.state.hasMore){
-  			footerContent= <p className="info-message">没有更多数据了</p>
-  		}else{
-  			footerContent= <p className="info-message">下滑获取更多</p>
-  		}
-  	}
-  	
-  	
-  	return <div>
-  		{footerContent}
-  	</div>
-  	
-  	
-  }
+
 }
 
 

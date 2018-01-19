@@ -9,6 +9,7 @@ import Content from './Content'
 import axios from 'axios'
 
 import {ListView} from 'antd-mobile'
+
 const HeaderBtn = (props)=>(
 	<a className={props.className}><i className={`fa fa-${props.type}`}></i></a>
 )
